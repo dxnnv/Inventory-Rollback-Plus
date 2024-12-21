@@ -80,8 +80,10 @@ public class MySQL {
                     ConfigData.getMySQLHost() + ":" + 
                     ConfigData.getMySQLPort() + "/" + 
                     ConfigData.getMySQLDatabase() + 
-                    "?connectionTimeout=30000" + 
-                    "&socketTimeout=45000" +
+                    "?connectionTimeout=" + 
+                    ConfigData.getMySQLConnectionTimeout()
+                    "&socketTimeout=" + 
+                    ConfigData.getMySQLSocketTimeout() + 
                     "&useSSL=" + 
                     ConfigData.isMySQLUseSSL() +
                     "&verifyServerCertificate=" +
