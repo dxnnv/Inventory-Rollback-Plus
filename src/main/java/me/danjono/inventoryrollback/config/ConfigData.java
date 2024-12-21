@@ -78,6 +78,8 @@ public class ConfigData {
     private static String mysqlTablePrefix;
     private static String mysqlUsername;
     private static String mysqlPassword;
+    private static int mysqlConnectionTimeout;
+    private static int mysqlSocketTimeout;
     private static boolean mysqlUseSSL;
     private static boolean mysqlVerifyCertificate;
     private static boolean mysqlPubKeyRetrieval;
@@ -127,6 +129,8 @@ public class ConfigData {
         setMySQLTablePrefix((String) getDefaultValue("mysql.details.table-prefix", "backup_"));
         setMySQLUsername((String) getDefaultValue("mysql.details.username", "username"));
         setMySQLPassword((String) getDefaultValue("mysql.details.password", "password"));
+        setMySQLConnectionTimeout((int) getDefaultValue("mysql.details.connectionTimeout", 30000));
+        setMySQLSocketTimeout((int) getDefaultValue("mysql.details.socketTimeout", 45000));
         setMySQLUseSSL((boolean) getDefaultValue("mysql.details.use-SSL", true));
         setMySQLVerifyCertificate((boolean) getDefaultValue("mysql.details.verifyCertificate", true));
         setMysqlPubKeyRetrievalAllowed((boolean) getDefaultValue("mysql.details.allowPubKeyRetrieval", false));
@@ -189,6 +193,14 @@ public class ConfigData {
 
     public static void setMySQLPassword(String value) {
         mysqlPassword = value;
+    }
+
+    public static void setMySQLConnectionTimeout(int value) {
+        mysqlConnectionTimeout = value;
+    }
+
+    public static void setMySQLSocketTimeout(int value) {
+        mysqlSocketTimeout = value;
     }
 
     public static void setMySQLUseSSL(boolean value) {
@@ -313,6 +325,14 @@ public class ConfigData {
 
     public static String getMySQLPassword() {
         return mysqlPassword;
+    }
+
+    public static int getMySQLConnectionTimeout() {
+        return mysqlConnectionTimeout;
+    }
+
+    public static int getMySQLSocketTimeout() {
+        return mysqlSocketTimeout;
     }
 
     public static boolean isMySQLUseSSL() {
