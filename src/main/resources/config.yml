@@ -26,6 +26,8 @@ mysql:
     table-prefix: 'backup_'
     username: 'username'
     password: 'password'
+    connectionTimeout: 30000
+    socketTimeout: 45000
     use-SSL: true
     verifyCertificate: true
     allowPubKeyRetrieval: false
